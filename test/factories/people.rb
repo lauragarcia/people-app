@@ -1,12 +1,13 @@
+require 'faker'
+
 FactoryGirl.define do
-  factory :person do
-    first_name "MyString"
-    last_name "MyString"
-    email "MyString"
-    job "MyString"
-    bio "MyText"
-    gender 1
-    birthdate "2016-05-28"
-    picture "MyString"
+  factory :person do |f|
+    f.first_name { Faker::Name.first_name }
+    f.last_name { Faker::Name.last_name }
+    f.birthdate { Faker::Date.backward(30000) }
+    f.gender { rand(2) }
+    f.email { Faker::Internet.email }
+    f.job { Faker::Company.profession } 
+    f.bio { Faker::Hipster.paragraph(2, true) }
   end
 end
