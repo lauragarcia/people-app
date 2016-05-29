@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PeopleControllerTest < ActionController::TestCase
   setup do
-    @person = people(:one)
+    @person = FactoryGirl.create(:person)
   end
 
   test "should get index" do
@@ -17,8 +17,9 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should create person" do
+    person = FactoryGirl.build(:person)
     assert_difference('Person.count') do
-      post :create, person: { bio: @person.bio, birthdate: @person.birthdate, email: @person.email, first_name: @person.first_name, gender: @person.gender, job: @person.job, last_name: @person.last_name, picture: @person.picture }
+      post :create, person: { bio: person.bio, birthdate: person.birthdate, email: person.email, first_name: person.first_name, gender: person.gender, job: person.job, last_name: person.last_name, picture: person.picture }
     end
 
     assert_redirected_to person_path(assigns(:person))
