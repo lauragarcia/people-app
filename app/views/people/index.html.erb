@@ -27,7 +27,7 @@
         <td><%= person.bio %></td>
         <td><%= person.gender %></td>
         <td><%= person.birthdate %></td>
-        <td><%= person.picture %></td>
+        <td><%= image_tag person.picture.thumb.url %></td>
         <td><%= link_to 'Show', person %></td>
         <td><%= link_to 'Edit', edit_person_path(person) %></td>
         <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>

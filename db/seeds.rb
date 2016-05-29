@@ -5,3 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'faker'
+
+Rake::Task['db:reset'].invoke
+
+25.times do |i|
+  person = Person.create!(
+    :first_name  => Faker::Name.first_name, 
+    :last_name  => Faker::Name.last_name ,
+    :birthdate  => Faker::Date.backward(30000), 
+    :gender  => rand(2), 
+    :email  => Faker::Internet.email, 
+    :job  => Faker::Company.profession,  
+    :bio  => Faker::Hipster.paragraph(2, true) 
+    )
+end

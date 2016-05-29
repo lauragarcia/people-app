@@ -34,9 +34,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-#User Faker for seed data
+#Use Faker for seed data
 gem 'faker', '~> 1.6', '>= 1.6.3'
+# User figaro to save secret keys
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+#Use resque for background jobs
+gem 'resque', '~> 1.26'
+# Uploader
+gem 'carrierwave', '~> 0.11.2'
+#Image magick
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

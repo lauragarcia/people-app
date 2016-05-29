@@ -17,4 +17,21 @@ class Person < ActiveRecord::Base
     errors.add(:birthdate, "is not a valid date.") if birthdate.present? and birthdate > Date.current
   end
 
+  mount_uploader :picture, AvatarUploader
+
+  after_create :send_emails_new_person
+  before_destroy :send_emails_deleted_person
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def send_emails_new_person
+    NewPersonJob.perform_later(id, full_name)
+  end
+
+  def send_emails_deleted_person
+    DeletedPersonJob.perform_later(id, full_name)
+  end
+
 end

@@ -32,4 +32,8 @@ class PersonTest < ActiveSupport::TestCase
     assert @person.valid?, "Person is not valid"
   end
 
+  test "should return full name string" do
+    assert_equal @person.full_name, "#{@person.first_name} #{@person.last_name}" 
+  end
+
 end
