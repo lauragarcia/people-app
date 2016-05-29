@@ -18,6 +18,8 @@ Rake::Task['db:reset'].invoke
     :gender  => rand(2), 
     :email  => Faker::Internet.email, 
     :job  => Faker::Company.profession,  
-    :bio  => Faker::Hipster.paragraph(2, true) 
+    :bio  => Faker::Hipster.paragraph(2, true)
     )
+  person.remote_picture_url = Faker::Avatar.image
+  person.save
 end
