@@ -1,0 +1,46 @@
+body {
+  padding-top: 50px;
+  font-family: "Lucida Console";
+}
+
+.peopleapp > .container > .navbar-header > a{ 
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.bio{
+  height: 76px;
+  word-break: break-all;
+}
+
+.alert.people{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.panel.people {
+  margin: auto;
+  margin-bottom: 50px;
+  padding: 30px;
+  width: 50%;
+}
+.panel.people h3 {
+  text-align: center;
+  margin: 30px;
+}
+
+.img-circle.people {
+  border: solid 1px #ddd;
+  display: block;
+  margin: auto;
+}
+
+.notice {
+  margin-top: 20px;
+}

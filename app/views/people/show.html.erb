@@ -1,44 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="starter-template">
+  <h1><%= @person.full_name %> </h1>
+</div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @person.first_name %>
-</p>
+<div class="row">
+  <div class="panel panel-default people">
+    <div class="panel-body">
+      <%= image_tag @person.picture.mid.url, alt: @person.full_name, class: "img-circle people" %>
+      <h3><%= "#{@person.job}, #{@person.age} years old"%></h3>
+      <p><%= @person.bio %></p>
+      <p><strong>Email:</strong> <%= @person.email %></p>
+      <p><strong>Gender:</strong> <%= @person.gender %></p>
+      <p><strong>Birthdate:</strong> <%= @person.birthdate.strftime("%-d %B %Y") %></p>
+      <%= link_to edit_person_path(@person) do %>
+        Edit
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      <% end %>
+      <%= link_to @person, method: :delete, data: {confirm: 'Are you sure?'} do %>
+        Remove
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+      <% end %>
+      <%= link_to people_path do %>
+        Back
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @person.last_name %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @person.email %>
-</p>
 
-<p>
-  <strong>Job:</strong>
-  <%= @person.job %>
-</p>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @person.bio %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @person.gender %>
-</p>
-
-<p>
-  <strong>Birthdate:</strong>
-  <%= @person.birthdate %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= @person.picture %>
-</p>
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>

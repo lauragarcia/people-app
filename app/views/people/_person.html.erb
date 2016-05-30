@@ -1,0 +1,16 @@
+  <div class="col-sm-6 col-md-4 person<%= person.id%>">
+    <div class="thumbnail">
+      <%= image_tag person.picture.mid.url, alt: person.full_name %>
+      <div class="caption">
+        <%= link_to person do %>
+          <h3><%= "#{truncate(person.full_name, length: 17)}, #{person.age}"  %></h3>
+        <% end %>
+        <h4><%= truncate(person.email, length: 25 ) %></h4>
+        <p class="bio"><%= truncate(person.bio, length: 150) %></p>
+        <p>
+          <%= link_to 'Show more', person, class: 'btn btn-primary'%>
+          <%= link_to 'Delete', person, class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}, remote: true%>
+           
+      </div>
+    </div>
+  </div>

@@ -26,6 +26,11 @@ class Person < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def age
+    age = Date.today.year - birthdate.year
+    Date.today < birthdate + age.years ? age-1: age
+  end
+
   def send_emails_new_person
     NewPersonJob.perform_later(id, full_name)
   end

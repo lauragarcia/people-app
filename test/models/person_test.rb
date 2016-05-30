@@ -36,4 +36,9 @@ class PersonTest < ActiveSupport::TestCase
     assert_equal @person.full_name, "#{@person.first_name} #{@person.last_name}" 
   end
 
+  test "get the person age" do
+    @person.birthdate = Date.today - 5.years
+    assert_equal @person.age, 5 
+  end
+
 end

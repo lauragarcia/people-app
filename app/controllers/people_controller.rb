@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.all.order(:first_name, :last_name)
   end
 
   # GET /people/1
@@ -55,10 +55,7 @@ class PeopleController < ApplicationController
   # DELETE /people/1.json
   def destroy
     @person.destroy
-    respond_to do |format|
-      format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to people_path, notice: 'Person was successfully removed.'
   end
 
   private
