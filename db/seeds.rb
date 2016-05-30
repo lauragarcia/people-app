@@ -10,7 +10,7 @@ require 'faker'
 
 Rake::Task['db:reset'].invoke
 
-25.times do |i|
+40.times do |i|
   person = Person.create!(
     :first_name  => Faker::Name.first_name, 
     :last_name  => Faker::Name.last_name ,

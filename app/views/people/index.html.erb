@@ -2,7 +2,11 @@
   <h1>Contact list </h1>
   <p class="lead">All the people around you in one place. Invite people to join us.</p>
 </div>
-
-<% @people.each do |person | %>
-  <%= render person %>
-<% end %>
+<div class="row">
+  <% @people.each do |person | %>
+    <%= render person %>
+  <% end %>
+</div>
+<div class="row">
+  <%= paginate @people %>
+</div>
