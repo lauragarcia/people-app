@@ -10,7 +10,7 @@ class DeletedPersonJob < ActiveJob::Base
 
   def perform(id, name)
     Person.where.not(id: id).find_each do |p|
-      PeopleMailer.deleted_person(p, name).deliver_now
+      PeopleMailer.send_email(p, name, 'People App - A deleted person', 'has left').deliver_now
       puts "Sending email to #{p.email}"
     end
   end

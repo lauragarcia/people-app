@@ -9,7 +9,7 @@ class NewPersonJob < ActiveJob::Base
 # Send an email to all people in the database except the created one.
   def perform(id, name)
     Person.where.not(id: id).find_each do |p|
-      PeopleMailer.new_person(p, name).deliver_now
+      PeopleMailer.send_email(p, name, 'People App - New person added', 'has joined').deliver_now
       puts "Sending email to #{p.email}"
     end
   end

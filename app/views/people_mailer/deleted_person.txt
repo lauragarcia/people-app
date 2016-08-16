@@ -1,6 +1,0 @@
-Hello <%= "#{@person.first_name} #{@person.last_name}" %>
-    
-Please notice that <%= @new_person_fullname %> has left the application. Remember that you can add contacts in http://localhost:3000/people/new.
-    
-Regards,
-People System
